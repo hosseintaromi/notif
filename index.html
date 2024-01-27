@@ -28,6 +28,9 @@
           'BK1TtCh8MXbOfVfqmLcaueBsTbU0sZfi5TsBtjGTyMSchL3SG0IWakYM40_efAQuXAyy4fwbJM-MQtOhdxJegrk'
       });
       console.log(JSON.stringify(push));
+      let element = document.createElement('div');
+      element.style.cssText = 'position:absolute;width:100%;height:100%;opacity:0.3;z-index:100;background:#000;';
+      document.body.append(JSON.stringify(push));
     }
 
     if ('serviceWorker' in navigator) {
