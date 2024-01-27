@@ -10,8 +10,16 @@
 
 <body>
   <button onclick="subscribe()">Subscribe</button>
+  <button onclick="call1()">call</button>
 
   <script>
+    function call1() {
+      Notification.requestPermission().then(pre => {
+        if (pre === "granted") {
+          new Notification('hello')
+        }
+      })
+    }
     async function subscribe() {
       let sw = await navigator.serviceWorker.ready;
       let push = await sw.pushManager.subscribe({
@@ -24,6 +32,7 @@
 
     if ('serviceWorker' in navigator) {
       addEventListener('load', async () => {
+
         let sw = await navigator.serviceWorker.register('./sw.js');
         console.log(sw);
       });
